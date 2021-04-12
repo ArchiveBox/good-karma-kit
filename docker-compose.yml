@@ -1,0 +1,162 @@
+# Usage:
+#     docker-compose pull
+#     docker-compose up
+
+version: '2.4'
+
+services:
+
+### Autoupdater
+
+  watchtower:
+    # Automatically updates & restarts the containers when they have new versions available 
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+### Distributed networking projects
+
+  tor:
+    # https://www.torproject.org/
+    # https://hub.docker.com/r/thetorproject/obfs4-bridge
+    image: thetorproject/obfs4-bridge:latest
+    ports:
+      - 9393:9393
+      - 9292:9292
+    environment:
+      - OR_PORT=9393
+      - PT_PORT=9292
+      - EMAIL=youremail@example.com
+    volumes:
+      - ./data/tor:/var/lib/tor
+      - ./etc/tor:/etc/tor
+
+  i2p:
+    # https://geti2p.net/en/
+    # https://hub.docker.com/r/divax/i2p
+    image: divax/i2p:i2p-tor
+    ports:
+      - 7070:7070
+      - 4444:4444
+      - 4445:4445
+      - 9050:9050
+      # - 127.0.0.1:8080:8080   # optional: proxy port for accessing i2p
+
+
+### Distribued storage projects
+
+  ipfs:
+    # https://ipfs.io
+    # https://hub.docker.com/r/ipfs/go-ipfs
+    image: ipfs/go-ipfs:latest
+    ports:
+      - 8080:8080   # public gateway
+      - 4001:4001   # public swarm UDP
+      - 5001:5001   # private API
+    volumes:
+      - ./data/ipfs:/data/ipfs
+
+  storj:
+    # https://www.storj.io/
+    # https://hub.docker.com/r/storjlabs/storagenode
+    image: storjlabs/storagenode:latest
+    ports:
+      - 28967:28967
+      - 14002:14002
+    environment:
+      - WALLET=YOUR_STORJ_PAYOUT_ADDRESS_HERE
+      - EMAIL=youremail@example.com
+      - STORAGE=100GB
+    volumes:
+      - ./data/storj/config:/app/config
+      - ./data/storj/identity/storagenode:/app/identity
+
+  sia:
+    # https://sia.tech/
+    # https://hub.docker.com/r/nebulouslabs/sia
+    image: nebulouslabs/sia
+    ports:
+      - 9981:9981
+      - 9982:9982
+      - 9983:9983
+      - 9984:9984
+      - 127.0.0.1:9980:9980
+    volumes:
+      - ./data/sia:/sia-data
+    
+
+### Distributed computing projects
+
+  boinc:
+    # https://boinc.berkeley.edu/
+    # https://hub.docker.com/r/linuxserver/boinc
+    image: ghcr.io/linuxserver/boinc
+    ports:
+      - 127.0.0.1:8080:8080
+    # devices:                 # optional, uncomment to use GPU
+    #  - /dev/dri:/dev/dri
+    volumes:
+      - ./data/boinc:/config
+
+  foldingathome:
+    # https://foldingathome.org/
+    # https://hub.docker.com/r/linuxserver/foldingathome
+    image: ghcr.io/linuxserver/foldingathome
+    ports:
+      - 127.0.0.1:7396:7396
+      - 127.0.0.1:36330:36330
+    volumes:
+      - ./data/foldingathome:/config
+
+
+### Internet Archiving projects
+
+  archivewarrior:
+    # http://warrior.archiveteam.org/
+    # https://hub.docker.com/r/archiveteam/warrior-dockerfile/
+    image: archiveteam/warrior-dockerfile
+    ports:
+      - 127.0.0.1:8001:8001
+    environment:
+      - SELECTED_PROJECT=auto
+      - DOWNLOADER="Your name here"
+
+  zimfarm:
+    # https://github.com/openzim/zimfarm
+    # https://hub.docker.com/r/openzim/zimfarm-worker-manager
+    image: openzim/zimfarm-worker-manager
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kiwix:
+    # https://www.kiwix.org/en/
+    # https://hub.docker.com/r/kiwix/kiwix-serve
+    image: kiwix/kiwix-serve:latest
+    entrypoint: "/usr/local/bin/kiwix-serve --port 9494 --verbose --library /data/library.xml"
+    ports:
+      - 0.0.0.0:9494:9494
+    volumes:
+      - ./data/kiwix:/data:ro
+
+  archivebox:
+    # https://archivebox.io
+    # https://hub.docker.com/r/archivebox/archivebox/
+    image: archivebox/archivebox:latest
+    command: server --quick-init 0.0.0.0:9595
+    ports:
+      - 127.0.0.1:9595:9595
+    volumes:
+      - ./data/archivebox:/data
+
+  pywb:
+    # https://github.com/webrecorder/pywb
+    # https://hub.docker.com/r/webrecorder/pywb
+    image: webrecorder/pywb:latest
+    command: wayback
+    environment:
+      - INIT_COLLECTION=YOUR_COLLECTION_NAME
+    ports:
+      - 127.0.0.1:8080:8080
+    volumes:
+      - ./data/pywb:/webarchive
