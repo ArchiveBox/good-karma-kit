@@ -9,7 +9,9 @@ services:
 ### Autoupdater
 
   watchtower:
-    # Automatically updates & restarts the containers when they have new versions available 
+    # Automatically updates & restarts the containers when they have new versions available
+    # https://containrrr.dev/watchtower
+    # https://github.com/containrrr/watchtower
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -19,6 +21,7 @@ services:
 
   tor:
     # https://www.torproject.org/
+    # https://community.torproject.org/relay/setup/bridge/docker/
     # https://hub.docker.com/r/thetorproject/obfs4-bridge
     image: thetorproject/obfs4-bridge:latest
     ports:
@@ -30,7 +33,6 @@ services:
       - EMAIL=youremail@example.com
     volumes:
       - ./data/tor:/var/lib/tor
-      - ./etc/tor:/etc/tor
 
   i2p:
     # https://geti2p.net/en/
