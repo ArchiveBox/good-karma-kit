@@ -1,8 +1,8 @@
-# good-karma-kit
+# The Good Karma Kit
 
-A Docker Compose project to run on servers with spare CPU, RAM, and bandwidth to help the world.
+> A Docker Compose project to run on servers with spare CPU, RAM, and bandwidth to help the world.
 
-Contribute your unused cpu power to good causes.
+Contribute your unused computing power to good causes.
 
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory
 2. `mkdir data`
