@@ -17,6 +17,8 @@ so make sure you understand the risks involved with exposing your machine to WAN
 
 ## Contents
 
+---
+
 ### Autoupdater
 
 #### watchtower
@@ -29,6 +31,8 @@ https://containrrr.dev/watchtower/
 https://github.com/containrrr/watchtower
 
 Notes: requires access to system docker socket, and will autoupdate *all* running containers on the host unless scoped with labels.
+
+---
 
 ### Distributed networking projects
 
@@ -47,6 +51,7 @@ https://hub.docker.com/r/thetorproject/obfs4-bridge
 https://geti2p.net/en/  
 https://hub.docker.com/r/divax/i2p
 
+---
 
 ### Distribued storage projects
 
@@ -74,7 +79,7 @@ Notes: 💰 This one earns you money for your storage! Set up your `WALLET` addr
 https://sia.tech/  
 https://hub.docker.com/r/nebulouslabs/sia
 
-
+---
 
 ### Distributed computing projects
 
@@ -95,6 +100,7 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
 https://foldingathome.org/  
 https://hub.docker.com/r/linuxserver/foldingathome
 
+---
 
 ### Internet Archiving projects
 
