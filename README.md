@@ -32,7 +32,7 @@ The nature of most of these containers is that you're contributing resources to 
 Unless otherwise specified or restricted to 127.0.0.1 in the compose file, all ports should be made available to the public internet.
 Make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
 
-Two containers require access to `/var/run/docker.sock`: `watchtower` (the autoupdater), and `zimfarm` (which uses it to spawn task worker containers for each of it's sub-tasks). Both are optional and can be commented out, just make sure to update the containers yourself semi-regularly if you disable the autoupdater.
+Two containers need access to `/var/run/docker.sock` to function: `watchtower` (the autoupdater), and `zimfarm` (which uses it to spawn containers for its sub-tasks). Both are optional and can be commented out, just make sure to update the containers yourself semi-regularly if you disable the `watchtower`.
 
 Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated for-profit entities. Each container is marked below with its non-profit/for-profit status.
 
