@@ -60,6 +60,7 @@ Notes: requires access to system docker socket, and will autoupdate *all* runnin
 [https://www.torproject.org/](https://www.torproject.org/)  
 [https://hub.docker.com/r/thetorproject/obfs4-bridge](https://hub.docker.com/r/thetorproject/obfs4-bridge)
 
+Notes: don't worry, this is just a relay node, not an entry/exit node. Police wont come bashing down your door, this is safe to run on a home network.
 
 #### i2p
 
