@@ -15,6 +15,8 @@
 3. `mkdir data && docker-compose up`
 4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
+See the notes below for more info on each container, what it does, and what companies it's affiliated with.
+
 ## Caveats
 
 The nature of most of these containers is that you're contributing resources to the public or to specific causes running on the public internet.
@@ -23,6 +25,12 @@ Unless otherwise specified or restricted to 127.0.0.1 in the compose file, all p
 Make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
 
 Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated for-profit entities. Each container is marked below with its non-profit/for-profit status.
+
+If there are too many containers for your liking, the top-3 good-karma-earning/positively-impactful ones to run are:
+
+- ⭐️  `archivewarrior`
+- ⭐️  `boinc`
+- ⭐️  `tor`
 
 ## Contents
 
@@ -45,7 +53,7 @@ Notes: requires access to system docker socket, and will autoupdate *all* runnin
 
 ### Distributed networking projects
 
-#### tor
+#### tor ⭐️
 
 `image: thetorproject/obfs4-bridge:latest`
 
@@ -63,6 +71,32 @@ https://hub.docker.com/r/thetorproject/obfs4-bridge
 
 https://geti2p.net/en/  
 https://hub.docker.com/r/divax/i2p
+
+
+---
+
+### Distributed computing projects
+
+#### boinc ⭐️
+
+`image: ghcr.io/linuxserver/boinc`
+
+> Help contribute CPU and GPU power to a wide variety of scientific research projects, including protein folding, alien signal detection, and more! (operated not-for-profit by UC Berkeley and funded by the NSF)
+
+https://boinc.berkeley.edu/  
+https://hub.docker.com/r/linuxserver/boinc
+    
+Notes: if you have a GPU, it will help computations greatly, please uncomment the /dev/dri line.
+
+
+#### foldingathome
+
+`image: ghcr.io/linuxserver/foldingathome`
+
+> Help contribute CPU power to solve protein folding problems in bioscience, crucial to the development of vacienes and our understanding of molecular biology and mechanics. (operated by a research group at Washington University in Saint Louis, a 501(c)(3) non-profit) 
+
+https://foldingathome.org/  
+https://hub.docker.com/r/linuxserver/foldingathome
 
 ---
 
@@ -102,34 +136,9 @@ Notes: there are growing concerns with the long-term viability of this project h
 
 ---
 
-### Distributed computing projects
-
-#### boinc
-
-`image: ghcr.io/linuxserver/boinc`
-
-> Help contribute CPU and GPU power to a wide variety of scientific research projects, including protein folding, alien signal detection, and more! (operated not-for-profit by UC Berkeley and funded by the NSF)
-
-https://boinc.berkeley.edu/  
-https://hub.docker.com/r/linuxserver/boinc
-    
-Notes: if you have a GPU, it will help computations greatly, please uncomment the /dev/dri line.
-
-
-#### foldingathome
-
-`image: ghcr.io/linuxserver/foldingathome`
-
-> Help contribute CPU power to solve protein folding problems in bioscience, crucial to the development of vacienes and our understanding of molecular biology and mechanics. (operated by a research group at Washington University in Saint Louis, a 501(c)(3) non-profit) 
-
-https://foldingathome.org/  
-https://hub.docker.com/r/linuxserver/foldingathome
-
----
-
 ### Internet Archiving projects
 
-#### archivewarrior
+#### archivewarrior ⭐️
 
 > Help contribute CPU and bandwidth to archive parts of the internet automatically before they go down. Has helped save large swaths of the internet from going dark forever by adding them to Archive.org. (operated by an open-source collective, not-for-profit)
 
@@ -148,7 +157,7 @@ https://hub.docker.com/r/archiveteam/warrior-dockerfile/
 https://github.com/openzim/zimfarm  
 https://hub.docker.com/r/openzim/zimfarm-worker-manager
     
-Notes: this one requires a static IP! You must contact Kiwix to get your worker set up, and get your static IP whitelisted.
+Notes: this one requires a static IP and >1TB of monthly network transfer available! You must contact Kiwix to get your worker set up, and get your static IP whitelisted.
 
 #### kiwix
 
