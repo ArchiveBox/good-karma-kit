@@ -9,7 +9,7 @@
 
 ## Quickstart
 
-1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory
+1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory (or clone this repo)
 2. Edit the `docker-compose.yml` file to fill in the environment variables, or comment out any containers you don't want to run
 3. `mkdir data && docker-compose up`
 4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
