@@ -11,16 +11,18 @@
 ## Quickstart
 
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory
-2. `mkdir data`
-3. `docker-compose up`
+2. Edit the `docker-compose.yml` file to fill in the environment variables, or comment out any containers you don't want to run
+3. `mkdir data && docker-compose up`
 4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
-*Note: You can also comment out any containers you don't want to run in the compose file.*
+## Caveats
 
 The nature of most of these containers is that you're contributing resources to the public or to specific causes running on the public internet.
 Unless otherwise specified or restricted to 127.0.0.1 in the compose file, all ports should be made available to the public internet.
 
 Make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
+
+Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated for-profit entities. Each container is marked below with its non-profit/for-profit status.
 
 ## Contents
 
@@ -47,7 +49,7 @@ Notes: requires access to system docker socket, and will autoupdate *all* runnin
 
 `image: thetorproject/obfs4-bridge:latest`
 
-> Run a relay node for the Tor onion routing netowrk that helps let people use the internet with as much privacy as possible. (501(c)(3) US nonprofit)
+> Run a relay node for the Tor onion routing netowrk that helps people use the internet with as much privacy as possible. (501(c)(3) US nonprofit)
 
 https://www.torproject.org/  
 https://hub.docker.com/r/thetorproject/obfs4-bridge
