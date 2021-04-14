@@ -138,7 +138,7 @@ Notes: there are concerns with the long-term viability of this project [https://
 
 #### archivewarrior ⭐️
 
-`image: archiveteam/warrior-dockerfile`
+`image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest` or `archiveteam/warrior-dockerfile`
 
 > Help contribute CPU and bandwidth to archive parts of the internet automatically before they go down. Has helped save large swaths of the internet from going dark forever by adding them to Archive.org. (operated by an open-source collective, not-for-profit)
 
