@@ -21,7 +21,6 @@ See the notes below for more info on each container, what it does, and what comp
 
 The nature of most of these containers is that you're contributing resources to the public or to specific causes running on the public internet.
 Unless otherwise specified or restricted to 127.0.0.1 in the compose file, all ports should be made available to the public internet.
-
 Make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
 
 Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated for-profit entities. Each container is marked below with its non-profit/for-profit status.
