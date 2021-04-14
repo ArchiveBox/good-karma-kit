@@ -117,7 +117,8 @@ services:
   archivewarrior:
     # http://warrior.archiveteam.org/
     # https://hub.docker.com/r/archiveteam/warrior-dockerfile/
-    image: archiveteam/warrior-dockerfile
+    image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest   # temporary mirror due to issues with image on Docker hub
+    # image: archiveteam/warrior-dockerfile
     ports:
       - 127.0.0.1:8001:8001
     environment:
