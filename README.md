@@ -138,12 +138,10 @@ Notes: 💰 This one earns you money for your storage! Set up your `WALLET` addr
 
 `image: nebulouslabs/sia`
 
-> Run a storage node (free/not-for-profit) on the Sia distributed storage network. (operated by Sia Foundation, a 501(c)(3) US nonprofit, but helps serve Skynet, a for-profit partner entity)
+> Run a storage node (free/not-for-profit) on the Sia distributed storage network. (technicall operated by Sia Foundation, a 501(c)(3) US nonprofit, but helps serve Skynet, their for-profit entity)
 
 [https://sia.tech/](https://sia.tech/)  
 [https://hub.docker.com/r/nebulouslabs/sia](https://hub.docker.com/r/nebulouslabs/sia)
-
-Notes: there are concerns with the long-term viability of this project [https://siasetup.info/concerns-about-sia-and-skynet](https://siasetup.info/concerns-about-sia-and-skynet)
 
 ---
 
