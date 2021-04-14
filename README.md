@@ -13,13 +13,14 @@
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory
 2. `mkdir data`
 3. `docker-compose up`
-4. Finish setting up projects through their respective web dashboards exposed on localhost
+4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
-You can also comment out any containers you don't want to run in the compose file.
+*Note: You can also comment out any containers you don't want to run in the compose file.*
 
+The nature of most of these containers is that you're contributing resources to the public or to specific causes running on the public internet.
 Unless otherwise specified or restricted to 127.0.0.1 in the compose file, all ports should be made available to the public internet.
-The nature of most of these containers is that you're contributing resources to the public or to specific causes running on the public internet,
-so make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
+
+Make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
 
 ## Contents
 
