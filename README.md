@@ -145,7 +145,6 @@ Notes: there are concerns with the long-term viability of this project [https://
 [https://warrior.archiveteam.org/](https://warrior.archiveteam.org/)  
 [https://hub.docker.com/r/archiveteam/warrior-dockerfile/](https://hub.docker.com/r/archiveteam/warrior-dockerfile/)
 
-
 #### zimfarm
 
 `image: openzim/zimfarm-worker-manager`
@@ -155,7 +154,7 @@ Notes: there are concerns with the long-term viability of this project [https://
 [https://github.com/openzim/zimfarm](https://github.com/openzim/zimfarm)  
 [https://hub.docker.com/r/openzim/zimfarm-worker-manager](https://hub.docker.com/r/openzim/zimfarm-worker-manager)
     
-Notes: this one requires a static IP and >1TB of monthly network transfer available! You must contact Kiwix to get your worker set up, and get your static IP whitelisted.
+Notes: this one requires a static IP and >1TB of monthly network transfer available! You must [contact Kiwix to get your worker set up](https://github.com/openzim/zimfarm/blob/master/workers/README.md#zimfarm-workers), and get your static IP whitelisted.
 
 #### kiwix
 
@@ -165,7 +164,7 @@ Notes: this one requires a static IP and >1TB of monthly network transfer availa
 
 [https://www.kiwix.org/en/](https://www.kiwix.org/en/)  
 [https://hub.docker.com/r/kiwix/kiwix-serve](https://hub.docker.com/r/kiwix/kiwix-serve)
-    
+
 Notes: this one requires you download some ZIM archives to serve into `./data/kiwix`, get those from here: [https://wiki.kiwix.org/wiki/Content_in_all_languages](https://wiki.kiwix.org/wiki/Content_in_all_languages)
 
 #### archivebox
