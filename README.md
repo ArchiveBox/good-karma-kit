@@ -42,8 +42,8 @@ If there are too many containers for your liking, the top-3 good-karma-earning/p
 
 > Automatically update & restart docker containers when they have new versions available. (open source helper container)
 
-https://containrrr.dev/watchtower/  
-https://github.com/containrrr/watchtower
+[https://containrrr.dev/watchtower/](https://containrrr.dev/watchtower/)  
+[https://github.com/containrrr/watchtower](https://github.com/containrrr/watchtower)
 
 Notes: requires access to system docker socket, and will autoupdate *all* running containers on the host unless scoped with labels.
 
@@ -57,8 +57,8 @@ Notes: requires access to system docker socket, and will autoupdate *all* runnin
 
 > Run a relay node for the Tor onion routing netowrk that helps people use the internet with as much privacy as possible. (501(c)(3) US nonprofit)
 
-https://www.torproject.org/  
-https://hub.docker.com/r/thetorproject/obfs4-bridge
+[https://www.torproject.org/](https://www.torproject.org/)  
+[https://hub.docker.com/r/thetorproject/obfs4-bridge](https://hub.docker.com/r/thetorproject/obfs4-bridge)
 
 
 #### i2p
@@ -67,8 +67,8 @@ https://hub.docker.com/r/thetorproject/obfs4-bridge
 
 > Run a relay node for the i2p routing network (similar to Tor). (501(c)(3) US nonprofit)
 
-https://geti2p.net/en/  
-https://hub.docker.com/r/divax/i2p
+[https://geti2p.net/en/](https://geti2p.net/en/)  
+[https://hub.docker.com/r/divax/i2p](https://hub.docker.com/r/divax/i2p)
 
 
 ---
@@ -81,8 +81,8 @@ https://hub.docker.com/r/divax/i2p
 
 > Help contribute CPU and GPU power to a wide variety of scientific research projects, including protein folding, alien signal detection, and more! (operated not-for-profit by UC Berkeley and funded by the NSF)
 
-https://boinc.berkeley.edu/  
-https://hub.docker.com/r/linuxserver/boinc
+[https://boinc.berkeley.edu/](https://boinc.berkeley.edu/)  
+[https://hub.docker.com/r/linuxserver/boinc](https://hub.docker.com/r/linuxserver/boinc)
     
 Notes: if you have a GPU, it will help computations greatly, please uncomment the /dev/dri line.
 
@@ -93,8 +93,8 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
 
 > Help contribute CPU power to solve protein folding problems in bioscience, crucial to the development of vacienes and our understanding of molecular biology and mechanics. (operated by a research group at Washington University in Saint Louis, a 501(c)(3) non-profit) 
 
-https://foldingathome.org/  
-https://hub.docker.com/r/linuxserver/foldingathome
+[https://foldingathome.org/](https://foldingathome.org/)  
+[https://hub.docker.com/r/linuxserver/foldingathome](https://hub.docker.com/r/linuxserver/foldingathome)
 
 ---
 
@@ -106,8 +106,8 @@ https://hub.docker.com/r/linuxserver/foldingathome
 
 > Run a storage node (free/not-for-profit) on the IPFS distributed storage network and pin files you care about to help serve them to others. (operated by Protocol Labs Inc., a for-profit US company)
 
-https://ipfs.io  
-https://hub.docker.com/r/ipfs/go-ipfs
+[https://ipfs.io](https://ipfs.io)  
+[https://hub.docker.com/r/ipfs/go-ipfs](https://hub.docker.com/r/ipfs/go-ipfs)
 
 
 #### storj
@@ -116,8 +116,8 @@ https://hub.docker.com/r/ipfs/go-ipfs
 
 > Run a storage node (for profit) on the Storj distributed storage network, automatically contribute your storage space and bandwidth and earn cryptocurrency in return. (operated by Storj Labs Inc., a for-profit US company)
 
-https://www.storj.io/  
-https://hub.docker.com/r/storjlabs/storagenode
+[https://www.storj.io/](https://www.storj.io/)  
+[https://hub.docker.com/r/storjlabs/storagenode](https://hub.docker.com/r/storjlabs/storagenode)
 
 Notes: 💰 This one earns you money for your storage! Set up your `WALLET` address for payouts.
 
@@ -127,10 +127,10 @@ Notes: 💰 This one earns you money for your storage! Set up your `WALLET` addr
 
 > Run a storage node (free/not-for-profit) on the Sia distributed storage network. (operated by Sia Foundation, a 501(c)(3) US nonprofit, but helps serve Skynet, a for-profit partner entity)
 
-https://sia.tech/  
-https://hub.docker.com/r/nebulouslabs/sia
+[https://sia.tech/](https://sia.tech/)  
+[https://hub.docker.com/r/nebulouslabs/sia](https://hub.docker.com/r/nebulouslabs/sia)
 
-Notes: there are growing concerns with the long-term viability of this project https://siasetup.info/concerns-about-sia-and-skynet
+Notes: there are concerns with the long-term viability of this project [https://siasetup.info/concerns-about-sia-and-skynet](https://siasetup.info/concerns-about-sia-and-skynet)
 
 ---
 
@@ -138,12 +138,12 @@ Notes: there are growing concerns with the long-term viability of this project h
 
 #### archivewarrior ⭐️
 
-> Help contribute CPU and bandwidth to archive parts of the internet automatically before they go down. Has helped save large swaths of the internet from going dark forever by adding them to Archive.org. (operated by an open-source collective, not-for-profit)
-
 `image: archiveteam/warrior-dockerfile`
 
-http://warrior.archiveteam.org/  
-https://hub.docker.com/r/archiveteam/warrior-dockerfile/
+> Help contribute CPU and bandwidth to archive parts of the internet automatically before they go down. Has helped save large swaths of the internet from going dark forever by adding them to Archive.org. (operated by an open-source collective, not-for-profit)
+
+[https://warrior.archiveteam.org/](https://warrior.archiveteam.org/)  
+[https://hub.docker.com/r/archiveteam/warrior-dockerfile/](https://hub.docker.com/r/archiveteam/warrior-dockerfile/)
 
 
 #### zimfarm
@@ -152,8 +152,8 @@ https://hub.docker.com/r/archiveteam/warrior-dockerfile/
 
 > Help contribute CPU and bandwidth to *archive* large content collections for offline use in areas with limited internet. Helps many communities access things like Wikipedia, Project Gutenberg, and more. (operated by the Swiss non-profit Kiwix/OpenZIM)
 
-https://github.com/openzim/zimfarm  
-https://hub.docker.com/r/openzim/zimfarm-worker-manager
+[https://github.com/openzim/zimfarm](https://github.com/openzim/zimfarm)  
+[https://hub.docker.com/r/openzim/zimfarm-worker-manager](https://hub.docker.com/r/openzim/zimfarm-worker-manager)
     
 Notes: this one requires a static IP and >1TB of monthly network transfer available! You must contact Kiwix to get your worker set up, and get your static IP whitelisted.
 
@@ -163,10 +163,10 @@ Notes: this one requires a static IP and >1TB of monthly network transfer availa
 
 > Help contribute bandwidth and disk to *serve* large content collections to users in areas with limited or censored internet. This is the server for the content that `zimfarm` archives. (operated by the Swiss non-profit Kiwix/OpenZIM)
 
-https://www.kiwix.org/en/  
-https://hub.docker.com/r/kiwix/kiwix-serve
+[https://www.kiwix.org/en/](https://www.kiwix.org/en/)  
+[https://hub.docker.com/r/kiwix/kiwix-serve](https://hub.docker.com/r/kiwix/kiwix-serve)
     
-Notes: this one requires you download some ZIM archives to serve into `./data/kiwix`, get those from here: https://wiki.kiwix.org/wiki/Content_in_all_languages
+Notes: this one requires you download some ZIM archives to serve into `./data/kiwix`, get those from here: [https://wiki.kiwix.org/wiki/Content_in_all_languages](https://wiki.kiwix.org/wiki/Content_in_all_languages)
 
 #### archivebox
 
@@ -174,8 +174,8 @@ Notes: this one requires you download some ZIM archives to serve into `./data/ki
 
 > Use ArchiveBox as a tool to archive sites you care about for offline visiting or rehosting after they go down. (open source project, not-for-profit)
 
-https://archivebox.io  
-https://hub.docker.com/r/archivebox/archivebox/
+[https://archivebox.io](https://archivebox.io)  
+[https://hub.docker.com/r/archivebox/archivebox/](https://hub.docker.com/r/archivebox/archivebox/)
     
 Notes: this one is empty by default, add some sites to archive or crawl regulary using the web UI or CLI.
 
@@ -185,8 +185,8 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 
 > Use PYWB as a tool to archive sites you care about for offline visiting or rehosting after they go down. (open source project, not-for-profit, affiliated with Rhizome/Webrecorder)
 
-https://github.com/webrecorder/pywb  
-https://hub.docker.com/r/webrecorder/pywb
+[https://github.com/webrecorder/pywb](https://github.com/webrecorder/pywb)  
+[https://hub.docker.com/r/webrecorder/pywb](https://hub.docker.com/r/webrecorder/pywb)
     
 Notes: this one is empty by default, add some sites to archive or crawl regulary using the web UI or CLI.
 
