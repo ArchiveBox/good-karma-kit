@@ -193,4 +193,4 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 
 ## Contribute
 
-Contributions are welcome! Please open an issue or PR to suggest a new container be added to the bundle.
+Contributions, corrections, and documentation improvements are welcome! Please open an issue or PR to suggest a fix or a new container addition.
