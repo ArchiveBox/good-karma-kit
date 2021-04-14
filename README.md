@@ -3,7 +3,7 @@
 <h1>The Good Karma Kit</h1>
 
 <img src="https://user-images.githubusercontent.com/511499/114660274-03b9dc00-9cc3-11eb-9db2-19ff3817d5f9.png" width="300px"/><br/>
-<i><b>A Docker Compose project to run on servers with spare CPU, RAM, and bandwidth to help the world.</b><br/>Contribute your unused computing power to good causes.</i>
+<i><b>A Docker Compose project to run on servers with spare CPU, RAM, and bandwidth.<br/></b><br/>Help the world by contributing your unused computing power to good causes.</i>
 
 </div>
 
