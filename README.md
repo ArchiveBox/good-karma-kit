@@ -2,9 +2,9 @@
 
 # The Good Karma Kit
 
-> A Docker Compose project to run on servers with spare CPU, RAM, and bandwidth to help the world.
-
 <img src="https://user-images.githubusercontent.com/511499/114660274-03b9dc00-9cc3-11eb-9db2-19ff3817d5f9.png" width="400px"/>
+
+<b><i>A Docker Compose project to run on servers with spare CPU, RAM, and bandwidth to help the world.</i></b>
 
 </div>
 
