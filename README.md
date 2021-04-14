@@ -1,6 +1,6 @@
 <div align="center">
 
-# The Good Karma Kit
+<h1>The Good Karma Kit</h1>
 
 <img src="https://user-images.githubusercontent.com/511499/114660274-03b9dc00-9cc3-11eb-9db2-19ff3817d5f9.png" width="300px"/>
 
