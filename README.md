@@ -11,14 +11,16 @@
 
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory (or clone this repo)
 2. Edit the `docker-compose.yml` file to fill in config vars, tune resource limits, or comment out containers you don't want to run
-3. Download the most recent images and start the containers
-```bash
+3. Start the containers with `docker-compose up`
+4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
+
+``bash
+curl -O https://raw.githubusercontent.com/ArchiveBox/good-karma-kit/main/docker-compose.yml
+# edit docker-compose.yml to fill in config, tune limits, or disable containers
+
 mkdir -p data
-docker-compose pull
-docker-compose up <servicename>  # start them one at a time
-docker-compose up                # or all at once
+docker-compose up
 ```
-4.  Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
 <br/>
 <div align="center">
