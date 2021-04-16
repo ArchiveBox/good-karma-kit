@@ -13,8 +13,8 @@ Have some space computing power and want to donate it to a good cause? How about
 
 Here is a collection of containers you can run that all contribute to public-good projects.
 
-> ✨  100% more soul warming than mining
-> ♻️   put an under-utilized system to good use
+> ✨  100% more soul warming than mining  
+> ♻️   put an under-utilized system to good use  
 > 📈  geek out over your CPU/disk/bandwidth stats on the leaderboards
 
 We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).
