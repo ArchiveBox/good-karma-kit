@@ -20,6 +20,14 @@ docker-compose up                # or all at once
 ```
 4.  Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
+<br/>
+<div align="center">
+<img width="22%" src="https://user-images.githubusercontent.com/511499/115007022-897e8880-9e77-11eb-9f99-4ed39b7110f1.png" align="top"/>
+<img width="22%" src="https://user-images.githubusercontent.com/511499/115006794-458b8380-9e77-11eb-8106-abfcca5b82b5.png" align="top"/>
+<img width="22%" src="https://user-images.githubusercontent.com/511499/115006828-4f14eb80-9e77-11eb-96ef-527751d0f170.png" align="top"/>
+<img width="22%" src="https://user-images.githubusercontent.com/511499/115006790-42909300-9e77-11eb-9d72-15bc186a2158.png" align="top"/>
+</div>
+
 
 Next steps: Check the status of everything using `ctop`
 ```bash
