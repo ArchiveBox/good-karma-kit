@@ -14,7 +14,7 @@
 3. Start the containers with `docker-compose up`
 4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
-``bash
+```bash
 curl -O https://raw.githubusercontent.com/ArchiveBox/good-karma-kit/main/docker-compose.yml
 # edit docker-compose.yml to fill in config, tune limits, or disable containers
 
