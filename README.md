@@ -38,27 +38,25 @@ apt install ctop && ctop
 ```
 Or use the web dashboards / leaderboards for each service listed below.
 
-*See the notes below for more info on each container, what it does, and what companies it's affiliated with.*
-
-## Info
+## Overview
 
 Have some space computing power and want to donate it to a good cause? How about 10+ good causes all at once?
 
-This is a collection of containers that all contribute to public-good projects. The v1 was started by the [ArchiveBox](https://archivebox.io) project, but it's open to contributions.
+> ♻️   put an under-utilized system to good use  
+> 🚲  use as much or as little CPU/RAM/DISK as you want  
+> ✨  100% more soul warming than mining  
+> 📈  geek out over your CPU/disk/bandwidth stats on the leaderboards
+
+This is a collection of containers that all contribute to public-good projects:
 
 - networks: Tor, i2p
 - computing: boinc, foldingathome
 - archiving: archivewarrior, zimfarm, kiwix, archivebox, pywb
 - storage: ipfs, storj, sia, transmission
 
+This v1 list was started by the [ArchiveBox](https://archivebox.io) project, but it's open to contributions.
+
 <small>We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).</small>
-
----
-
-> ♻️   put an under-utilized system to good use  
-> 🚲  use as much or as little CPU/RAM/DISK as you want  
-> ✨  100% more soul warming than mining  
-> 📈  geek out over your CPU/disk/bandwidth stats on the leaderboards
 
 ---
 
@@ -94,7 +92,7 @@ If there are too many containers for your liking, the top-3 high-impact and easy
 [https://containrrr.dev/watchtower/](https://containrrr.dev/watchtower/)  
 [https://github.com/containrrr/watchtower](https://github.com/containrrr/watchtower)
 
-Notes: requires access to system docker socket, and will autoupdate *all* running containers on the host unless scoped with [labels](https://github.com/ArchiveBox/good-karma-kit/issues/1).
+Notes: needs access `docker.sock` to work, but can be disabled if you regularly udpate the containers yourself by hand
 
 ---
 
@@ -109,7 +107,7 @@ Notes: requires access to system docker socket, and will autoupdate *all* runnin
 [https://www.torproject.org/](https://www.torproject.org/)  
 [https://hub.docker.com/r/thetorproject/obfs4-bridge](https://hub.docker.com/r/thetorproject/obfs4-bridge)
 
-Notes: don't worry, this is just a relay node, not an entry/exit node. Police wont come bashing down your door, this is safe to run on a home network.
+Notes: Does not run a guard/exit node, only a [middle relay](https://community.torproject.org/relay/types-of-relays/) node
 
 #### i2p
 
