@@ -13,32 +13,12 @@ Have some space computing power and want to donate it to a good cause? How about
 
 Here is a collection of containers you can run that all contribute to public-good projects:
 
-- Tor
-- i2p
-- boinc
-- foldingathome
-- archivewarrior
-- zimfarm
-- kiwix
-- archivebox
-- pywb
-- ipfs
-- storj
-- sia
-- transmission
+- networks: Tor, i2p
+- computing: boinc, foldingathome
+- archiving: archivewarrior, zimfarm, kiwix, archivebox, pywb
+- storage: ipfs, storj, sia, transmission
 
-We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).
-
-Let us know via Github Issues if you have any questions/comments/suggestions!
-
----
-
-> ♻️   put an under-utilized system to good use  
-> 🚲  use as much or as little CPU/RAM/DISK as you want
-> ✨  100% more soul warming than mining  
-> 📈  geek out over your CPU/disk/bandwidth stats on the leaderboards
-
----
+<small>We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).</small>
 
 ## Quickstart
 
@@ -62,6 +42,16 @@ apt install ctop && ctop
 Or use the web dashboards / leaderboards for each service listed below.
 
 *See the notes below for more info on each container, what it does, and what companies it's affiliated with.*
+
+---
+
+> ♻️   put an under-utilized system to good use  
+> 🚲  use as much or as little CPU/RAM/DISK as you want  
+> ✨  100% more soul warming than mining  
+> 📈  geek out over your CPU/disk/bandwidth stats on the leaderboards
+
+---
+
 
 ## Caveats
 
