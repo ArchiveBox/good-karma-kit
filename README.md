@@ -7,19 +7,6 @@
 
 </div>
 
-## Info
-
-Have some space computing power and want to donate it to a good cause? How about 10+ good causes all at once?
-
-Here is a collection of containers you can run that all contribute to public-good projects:
-
-- networks: Tor, i2p
-- computing: boinc, foldingathome
-- archiving: archivewarrior, zimfarm, kiwix, archivebox, pywb
-- storage: ipfs, storj, sia, transmission
-
-<small>We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).</small>
-
 ## Quickstart
 
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory (or clone this repo)
@@ -42,6 +29,19 @@ apt install ctop && ctop
 Or use the web dashboards / leaderboards for each service listed below.
 
 *See the notes below for more info on each container, what it does, and what companies it's affiliated with.*
+
+## Info
+
+Have some space computing power and want to donate it to a good cause? How about 10+ good causes all at once?
+
+This is a collection of containers that all contribute to public-good projects. The v1 was started by the [ArchiveBox](https://archivebox.io) project, but it's open to contributions.
+
+- networks: Tor, i2p
+- computing: boinc, foldingathome
+- archiving: archivewarrior, zimfarm, kiwix, archivebox, pywb
+- storage: ipfs, storj, sia, transmission
+
+<small>We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).</small>
 
 ---
 
