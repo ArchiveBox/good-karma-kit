@@ -7,6 +7,16 @@
 
 </div>
 
+## Info
+
+As the maintainers of [ArchiveBox](https://archivebox.io), we often see overlap with our homelab-type users and people who generally want to help support good causes with their (often overpowered & underused) servers.
+
+We figured it might be helpful to collect some of the best containers you can run to help support good causes! So here's my first attempt at a "Good Karma Kit", an all-in-one bundle that you can tweak to your liking, depending on what resources you have available and what causes you want to support.
+
+We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).
+
+Let us know via Github Issues if you have any questions/comments/suggestions!
+
 ## Quickstart
 
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory (or clone this repo)
