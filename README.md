@@ -9,22 +9,29 @@
 
 ## Quickstart
 
+
+To use this kit:
+
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory (or clone this repo)
-2. Edit the `docker-compose.yml` file to fill in the environment variables, or comment out any containers you don't want to run
-3. `mkdir data && docker-compose up`
-4. Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
-
-See the notes below for more info on each container, what it does, and what companies it's affiliated with.
-
-To throttle containers and prevent them from using all avaialable resources, you can add a block like so to each:
-```yaml
-services:
-    ...
-    containername:
-        ...
-        cpus: 3
-        mem_limit: 3072m
+2. Edit the `docker-compose.yml` file to fill in config vars, tune resource limits, or comment out containers you don't want to run
+3. Download the most recent images and start the containers
+```bash
+mkdir -p data
+docker-compose pull
+docker-compose up <servicename>  # start them one at a time
+docker-compose up                # or all at once
 ```
+4.  Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
+
+
+Next steps: Check the status of everything
+```bash
+docker-compose ps
+apt install ctop && ctop
+```
+Or use the web dashboard / publics leaderboards for each service.
+
+*See the notes below for more info on each container, what it does, and what companies it's affiliated with.*
 
 ## Caveats
 
