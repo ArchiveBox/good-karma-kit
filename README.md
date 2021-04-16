@@ -34,9 +34,9 @@ Make sure you understand the risks involved with exposing your machine to WAN. I
 
 Two containers need access to `/var/run/docker.sock` to function: `watchtower` (the autoupdater), and `zimfarm` (which uses it to spawn containers for its sub-tasks). Both are optional and can be commented out, just make sure to update the containers yourself semi-regularly if you disable the `watchtower`.
 
-Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated for-profit entities. Each container is marked below with its non-profit/for-profit status.
+Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated with for-profit entities. Each container is marked below with its non-profit/for-profit status.
 
-If there are too many containers for your liking, the top-3 good-karma-earning/positively-impactful ones to run are:
+If there are too many containers for your liking, the top-3 high-impact and easy-to-run ones are:
 
 - ⭐️  `archivewarrior`
 - ⭐️  `boinc`
@@ -57,7 +57,7 @@ If there are too many containers for your liking, the top-3 good-karma-earning/p
 [https://containrrr.dev/watchtower/](https://containrrr.dev/watchtower/)  
 [https://github.com/containrrr/watchtower](https://github.com/containrrr/watchtower)
 
-Notes: requires access to system docker socket, and will autoupdate *all* running containers on the host unless scoped with labels.
+Notes: requires access to system docker socket, and will autoupdate *all* running containers on the host unless scoped with [labels](https://github.com/ArchiveBox/good-karma-kit/issues/1).
 
 ---
 
@@ -109,39 +109,6 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
 [https://foldingathome.org/](https://foldingathome.org/)  
 [https://hub.docker.com/r/linuxserver/foldingathome](https://hub.docker.com/r/linuxserver/foldingathome)
 
----
-
-### Distribued storage projects
-
-#### ipfs
-
-`image: ipfs/go-ipfs:latest`
-
-> Run a storage node (free/not-for-profit) on the IPFS distributed storage network and pin files you care about to help serve them to others. (operated by Protocol Labs Inc., a for-profit US company)
-
-[https://ipfs.io](https://ipfs.io)  
-[https://hub.docker.com/r/ipfs/go-ipfs](https://hub.docker.com/r/ipfs/go-ipfs)
-
-
-#### storj
-
-`image: storjlabs/storagenode:latest`
-
-> Run a storage node (for profit) on the Storj distributed storage network, automatically contribute your storage space and bandwidth and earn cryptocurrency in return. (operated by Storj Labs Inc., a for-profit US company)
-
-[https://www.storj.io/](https://www.storj.io/)  
-[https://hub.docker.com/r/storjlabs/storagenode](https://hub.docker.com/r/storjlabs/storagenode)
-
-Notes: 💰 This one earns you money for your storage! Set up your `WALLET` address for payouts.
-
-#### sia
-
-`image: nebulouslabs/sia`
-
-> Run a storage node (free/not-for-profit) on the Sia distributed storage network. (technicall operated by Sia Foundation, a 501(c)(3) US nonprofit, but helps serve Skynet, their for-profit entity)
-
-[https://sia.tech/](https://sia.tech/)  
-[https://hub.docker.com/r/nebulouslabs/sia](https://hub.docker.com/r/nebulouslabs/sia)
 
 ---
 
@@ -201,6 +168,68 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 Notes: this one is empty by default, add some sites to archive or crawl regulary using the web UI or CLI.
 
 ---
+
+### Distribued storage projects
+
+(these serve assets to the public, 
+
+#### ipfs
+
+`image: ipfs/go-ipfs:latest`
+
+> Run a storage node (free/not-for-profit) on the IPFS distributed storage network and pin files you care about to help serve them to others. (operated by Protocol Labs Inc., a for-profit 💰 US company)
+
+[https://ipfs.io](https://ipfs.io)  
+[https://hub.docker.com/r/ipfs/go-ipfs](https://hub.docker.com/r/ipfs/go-ipfs)
+
+
+#### storj
+
+`image: storjlabs/storagenode:latest`
+
+> Run a storage node (for profit) on the Storj distributed storage network, automatically contribute your storage space and bandwidth and earn cryptocurrency in return. (operated by Storj Labs Inc., a for-profit 💰 US company)
+
+[https://www.storj.io/](https://www.storj.io/)  
+[https://hub.docker.com/r/storjlabs/storagenode](https://hub.docker.com/r/storjlabs/storagenode)
+
+Notes: 💰 This one earns you money for your storage! Set up your `WALLET` address for payouts.
+
+#### sia
+
+(OPTIONAL, commented out by default)
+
+`image: nebulouslabs/sia`
+
+> Run a storage node (free/not-for-profit) on the Sia distributed storage network. (technically operated by Sia Foundation, a 501(c)(3) US nonprofit, but helps serve Skynet, their for-profit 💰 entity)
+
+[https://sia.tech/](https://sia.tech/)  
+[https://hub.docker.com/r/nebulouslabs/sia](https://hub.docker.com/r/nebulouslabs/sia)
+
+#### Transmission
+
+(OPTIONAL, commented out by default)
+
+`image: linuxserver/transmission`
+
+> Seed files to the public via BitTorrent (e.g. linux ISOs, Archive.org collections, etc.). This starts empty by default, you have to add content yourself.
+
+(OPTIONAL)
+```yaml
+image: linuxserver/transmission
+ports:
+    - 127.0.0.1:9091:9091
+    - 0.0.0.0:51413:51413
+    - 0.0.0.0:51413:51413/udp
+environment:
+    - USER=squash
+    - PASS=NfC6r47FA8J2K
+volumes:
+    - ./data/transmission/files:/data
+    - ./data/transmission:/config
+```
+
+---
+
 
 ## Contribute
 
