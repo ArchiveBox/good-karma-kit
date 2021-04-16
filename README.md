@@ -9,9 +9,13 @@
 
 ## Info
 
-As the maintainers of [ArchiveBox](https://archivebox.io), we often see overlap with our homelab-type users and people who generally want to help support good causes with their (often overpowered & underused) servers.
+Have some space computing power and want to donate it to a good cause? How about 10+ good causes all at once?
 
-We figured it might be helpful to collect some of the best containers you can run to help support good causes! So here's my first attempt at a "Good Karma Kit", an all-in-one bundle that you can tweak to your liking, depending on what resources you have available and what causes you want to support.
+Here is a collection of containers you can run that all contribute to public-good projects.
+
+> ✨ 100% more soul warming than mining
+- ♻️ put an under-utilized system to good use
+> 📈 geek out over your CPU/disk/bandwidth stats on the leaderboards
 
 We've added the 501(c)/non-profit status of each cause below, so you can filter out for-profit ones if you don't want to participate in those (e.g. Storj/IPFS/etc.).
 
@@ -31,12 +35,12 @@ docker-compose up                # or all at once
 4.  Finish setting up some projects through their respective web dashboards exposed on localhost (see below)
 
 
-Next steps: Check the status of everything
+Next steps: Check the status of everything using `ctop`
 ```bash
 docker-compose ps
 apt install ctop && ctop
 ```
-Or use the web dashboard / publics leaderboards for each service.
+Or use the web dashboards / leaderboards for each service listed below.
 
 *See the notes below for more info on each container, what it does, and what companies it's affiliated with.*
 
@@ -46,7 +50,7 @@ The nature of most of these containers is that you're contributing resources to 
 Unless otherwise specified or restricted to 127.0.0.1 in the compose file, all ports should be made available to the public internet.
 Make sure you understand the risks involved with exposing your machine to WAN. It may be worth running this in an isolated VM on an isolated subnet if it's on your home or corporate network.
 
-Two containers need access to `/var/run/docker.sock` to function: `watchtower` (the autoupdater), and `zimfarm` (which uses it to spawn containers for its sub-tasks). Both are optional and can be commented out, just make sure to update the containers yourself semi-regularly if you disable the `watchtower`.
+Two optional containers need access to `/var/run/docker.sock`: `watchtower` (uses it to update the other containers), and `zimfarm` (uses it to fork worker containers for its sub-tasks). Make sure to update the containers yourself semi-regularly if you disable the `watchtower`.
 
 Not all the containers are not-for-profit, some either reward you with cryptocurrency, or are affiliated with for-profit entities. Each container is marked below with its non-profit/for-profit status.
 
