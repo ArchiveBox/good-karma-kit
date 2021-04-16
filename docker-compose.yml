@@ -1,25 +1,38 @@
-# Usage:
-#     docker-compose pull
-#     docker-compose up
+# To use this kit, go through the list of services below, and:
+#    1. tune the cpu, memory, storage limits, and example env config for each
+#    2. start the containers
+#       docker-compose pull <servicename>
+#       docker-compose up <servicename>
+#    2. log in to the web UIs or online accounts to do the initial setups
+#    3. check the status of everything
+#       docker-compose ps
+#       apt install ctop && ctop
+#       # or use the web dashboard / publics leaderboards for each service
 
 version: '2.4'
+# >= v3.9 also works
 
 services:
 
-### Autoupdater
-
+  ### Autoupdater
+  
   watchtower:
+    # (Optional)
     # Automatically updates & restarts the containers when they have new versions available
     # https://containrrr.dev/watchtower
     # https://github.com/containrrr/watchtower
     image: containrrr/watchtower
+    command: --scope goodkarmakit
     volumes:
+      # Security warning: this needs docker.sock to update the other containers
       - /var/run/docker.sock:/var/run/docker.sock
 
 
-### Distributed networking projects
+  ### Distributed networking projects
 
   tor:
+    # View your stats on the leaderboard with your public IP address or node ID:
+    #    https://metrics.torproject.org/rs.html#search
     # https://www.torproject.org/
     # https://community.torproject.org/relay/setup/bridge/docker/
     # https://hub.docker.com/r/thetorproject/obfs4-bridge
@@ -33,6 +46,11 @@ services:
       - EMAIL=youremail@example.com
     volumes:
       - ./data/tor:/var/lib/tor
+    cpus: 2                        # tune according to your system & preferences
+    mem_limit: 2048m               # tune according to your system & preferences
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
   i2p:
     # https://geti2p.net/en/
@@ -43,36 +61,191 @@ services:
       - 4444:4444
       - 4445:4445
       - 9050:9050
-      # - 127.0.0.1:8080:8080   # optional: proxy port for accessing i2p
+      # - 127.0.0.1:8080:8080      # optional: proxy port for accessing i2p
+    cpus: 2                        # tune according to your system & preferences
+    mem_limit: 2048m               # tune according to your system & preferences
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+
+### Distributed computing projects
+
+  boinc:
+    # Set up your active project and resources in the Web UI
+    #   http://127.0.0.1:7279
+    # https://boinc.berkeley.edu/
+    # https://hub.docker.com/r/linuxserver/boinc
+    image: ghcr.io/linuxserver/boinc
+    ports:
+      - 127.0.0.1:7279:8080
+    # devices:                     # optional, uncomment to use GPU
+    #  - /dev/dri:/dev/dri
+    volumes:
+      - ./data/boinc:/config
+    cpus: 4                        # tune according to your system & preferences
+    mem_limit: 4096m               # tune according to your system & preferences
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+  foldingathome:
+    # Set up your active project and resources in the Web UI
+    #   http://127.0.0.1:7396
+    # https://foldingathome.org/
+    # https://hub.docker.com/r/linuxserver/foldingathome
+    image: ghcr.io/linuxserver/foldingathome
+    ports:
+      - 127.0.0.1:7396:7396
+      - 127.0.0.1:36330:36330  # optional
+    volumes:
+      - ./data/foldingathome:/config
+    cpus: 4                        # tune according to your system & preferences
+    mem_limit: 4096m               # tune according to your system & preferences
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+
+### Internet Archiving projects
+
+  archivewarrior:
+    # Choose an active project and view your stats using the web UI
+    #   http://127.0.0.1:8001
+    # http://warrior.archiveteam.org/
+    # https://hub.docker.com/r/archiveteam/warrior-dockerfile/
+    image: archiveteam/warrior-dockerfile
+    # image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest   # backup mirror if ever issues with image on Docker hub
+    ports:
+      - 127.0.0.1:8001:8001
+    environment:
+      - DOWNLOADER=ANY_UNIQUE_WORKER_NICKNAME
+      - WORKER_ID=ANY_UNIQUE_WORKER_NICKNAME
+      - SELECTED_PROJECT=auto
+      - CONCURRENT_ITEMS=3
+    cpus: 3
+    mem_limit: 3072
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+  # zimfarm:
+  #   # Contact OpenZIM to register for zimfarm before uncommenting this (requires static IP)
+  #   #    https://github.com/openzim/zimfarm/blob/master/workers/README.md#run-a-worker
+  #   #    https://farm.openzim.org/
+  #   # https://github.com/openzim/zimfarm
+  #   # https://hub.docker.com/r/openzim/zimfarm-worker-manager
+  #   image: openzim/zimfarm-worker-manager
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   cpus: 3
+  #   mem_limit: 3072
+  #   restart: on-failure
+  #   labels:
+  #     - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+  kiwix:
+    # Make sure to download some ZIM files to serve + create a library.xml first
+    #    https://wiki.kiwix.org/wiki/Content_in_all_languages
+    #    https://wiki.kiwix.org/wiki/Kiwix-manage
+    #    https://wiki.kiwix.org/wiki/Kiwix-serve
+    # https://www.kiwix.org/en/
+    # https://hub.docker.com/r/kiwix/kiwix-serve
+    image: kiwix/kiwix-serve:latest
+    entrypoint: "/usr/local/bin/kiwix-serve --port 9494 --verbose --library /data/library.xml"
+    ports:
+      - 0.0.0.0:9494:9494
+    volumes:
+      - ./data/kiwix:/data:ro
+    cpus: 1
+    mem_limit: 768m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+  archivebox:
+    # Make sure to add some archived content with the web UI
+    #   http://127.0.0.1:9595/add/
+    # https://archivebox.io
+    # https://hub.docker.com/r/archivebox/archivebox/
+    image: archivebox/archivebox:latest
+    command: server --quick-init 0.0.0.0:9595
+    ports:
+      - 0.0.0.0:9595:9595
+    environment:
+      - PUBLIC_INDEX=True
+      - PUBLIC_SNAPSHOTS=True
+      - PUBLIC_ADD_VIEW=False
+    volumes:
+      - ./data/archivebox:/data
+    cpus: 3
+    mem_limit: 3072m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+  pywb:
+    # Make sure to add some archived content with the web UI
+    #   http://127.0.0.1:9797
+    # https://github.com/webrecorder/pywb
+    # https://hub.docker.com/r/webrecorder/pywb
+    image: webrecorder/pywb:latest
+    command: wayback
+    environment:
+      - INIT_COLLECTION=YOUR_COLLECTION_NAME
+    ports:
+      - 127.0.0.1:9797:8080
+    volumes:
+      - ./data/pywb:/webarchive
+    cpus: 3
+    mem_limit: 3072m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
 
 ### Distribued storage projects
-
+  
   ipfs:
+    # Make sure to pin some files you want to host for others using the web UI
+    #   http://127.0.0.1:5001
     # https://ipfs.io
     # https://hub.docker.com/r/ipfs/go-ipfs
     image: ipfs/go-ipfs:latest
     ports:
-      - 8080:8080   # public gateway
-      - 4001:4001   # public swarm UDP
-      - 5001:5001   # private API
+      - 8080:8080             # public gateway
+      - 4001:4001             # public swarm UDP
+      - 127.0.0.1:5001:5001   # private API
     volumes:
       - ./data/ipfs:/data/ipfs
+    cpus: 2
+    mem_limit: 2048m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
   storj:
+    # Make sure to first create a Storj wallet to hold your earnings
+    #    https://registration.storj.io/
+    #    http://127.0.0.1:14002/
     # https://www.storj.io/
     # https://hub.docker.com/r/storjlabs/storagenode
     image: storjlabs/storagenode:latest
     ports:
       - 28967:28967
-      - 14002:14002
+      - 127.0.0.1:14002:14002
     environment:
       - WALLET=YOUR_STORJ_PAYOUT_ADDRESS_HERE
-      - EMAIL=youremail@example.com
+      - EMAIL=YOUR_EMAIL_HERE@example.com
       - STORAGE=100GB
     volumes:
       - ./data/storj/config:/app/config
       - ./data/storj/identity/storagenode:/app/identity
+    cpus: 2
+    mem_limit: 2048m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
   sia:
     # https://sia.tech/
@@ -86,80 +259,30 @@ services:
       - 127.0.0.1:9980:9980
     volumes:
       - ./data/sia:/sia-data
+    cpus: 2
+    mem_limit: 2048m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
     
-
-### Distributed computing projects
-
-  boinc:
-    # https://boinc.berkeley.edu/
-    # https://hub.docker.com/r/linuxserver/boinc
-    image: ghcr.io/linuxserver/boinc
+  transmission:
+    image: linuxserver/transmission
+    # Add files to seed via the Web UI:
+    #   https://127.0.0.1:9091
+    # https://github.com/transmission/transmission
+    # https://hub.docker.com/r/linuxserver/transmission/
     ports:
-      - 127.0.0.1:8080:8080
-    # devices:                 # optional, uncomment to use GPU
-    #  - /dev/dri:/dev/dri
+        - 127.0.0.1:9091:9091
+        - 51413:51413
+        - 51413:51413/udp
+    # environment:
+    #    - USER=squash
+    #    - PASS=NfC6r47FA8J2K
     volumes:
-      - ./data/boinc:/config
-
-  foldingathome:
-    # https://foldingathome.org/
-    # https://hub.docker.com/r/linuxserver/foldingathome
-    image: ghcr.io/linuxserver/foldingathome
-    ports:
-      - 127.0.0.1:7396:7396
-      - 127.0.0.1:36330:36330
-    volumes:
-      - ./data/foldingathome:/config
-
-
-### Internet Archiving projects
-
-  archivewarrior:
-    # http://warrior.archiveteam.org/
-    # https://hub.docker.com/r/archiveteam/warrior-dockerfile/
-    image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest   # temporary mirror due to issues with image on Docker hub
-    # image: archiveteam/warrior-dockerfile
-    ports:
-      - 127.0.0.1:8001:8001
-    environment:
-      - SELECTED_PROJECT=auto
-      - DOWNLOADER="Your name here"
-
-  zimfarm:
-    # https://github.com/openzim/zimfarm
-    # https://hub.docker.com/r/openzim/zimfarm-worker-manager
-    image: openzim/zimfarm-worker-manager
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
-  kiwix:
-    # https://www.kiwix.org/en/
-    # https://hub.docker.com/r/kiwix/kiwix-serve
-    image: kiwix/kiwix-serve:latest
-    entrypoint: "/usr/local/bin/kiwix-serve --port 9494 --verbose --library /data/library.xml"
-    ports:
-      - 0.0.0.0:9494:9494
-    volumes:
-      - ./data/kiwix:/data:ro
-
-  archivebox:
-    # https://archivebox.io
-    # https://hub.docker.com/r/archivebox/archivebox/
-    image: archivebox/archivebox:latest
-    command: server --quick-init 0.0.0.0:9595
-    ports:
-      - 127.0.0.1:9595:9595
-    volumes:
-      - ./data/archivebox:/data
-
-  pywb:
-    # https://github.com/webrecorder/pywb
-    # https://hub.docker.com/r/webrecorder/pywb
-    image: webrecorder/pywb:latest
-    command: wayback
-    environment:
-      - INIT_COLLECTION=YOUR_COLLECTION_NAME
-    ports:
-      - 127.0.0.1:8080:8080
-    volumes:
-      - ./data/pywb:/webarchive
+        - ./data/transmission/files:/data
+        - ./data/transmission:/config
+    cpus: 2
+    mem_limit: 2048m
+    restart: on-failure
+    labels:
+      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
