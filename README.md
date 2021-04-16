@@ -9,9 +9,6 @@
 
 ## Quickstart
 
-
-To use this kit:
-
 1. Download [`docker-compose.yml`](https://github.com/pirate/good-karma-kit/blob/main/docker-compose.yml) into an empty directory (or clone this repo)
 2. Edit the `docker-compose.yml` file to fill in config vars, tune resource limits, or comment out containers you don't want to run
 3. Download the most recent images and start the containers
