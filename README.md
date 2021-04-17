@@ -31,10 +31,10 @@ docker-compose up
 </div>
 
 
-Next steps: Check the status of everything using `ctop`
+Next steps: Check the status of everything using `htop`
 ```bash
 docker-compose ps
-apt install ctop && ctop
+htop
 ```
 Or use the web dashboards / leaderboards for each service listed below.
 
