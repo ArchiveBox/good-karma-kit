@@ -242,13 +242,10 @@ Notes: 💰 This one earns you money for your storage! Set up your `WALLET` addr
 
 #### Transmission
 
-(OPTIONAL, commented out by default)
-
 `image: linuxserver/transmission`
 
 > Seed files to the public via BitTorrent (e.g. linux ISOs, Archive.org collections, etc.). This starts empty by default, you have to add content yourself.
 
-(OPTIONAL)
 ```yaml
 image: linuxserver/transmission
 ports:
