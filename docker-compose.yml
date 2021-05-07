@@ -1,31 +1,45 @@
-# To use this kit, go through the list of services below, and:
-#    1. tune the cpu, memory, storage limits, and example env config for each
-#    2. start the containers
-#       docker-compose pull <servicename>
-#       docker-compose up <servicename>
-#    2. log in to the web UIs or online accounts to do the initial setups
-#    3. check the status of everything
-#       docker-compose ps
-#       apt install ctop && ctop
-#       # or use the web dashboard / publics leaderboards for each service
+# The Good Karma Kit
+# MIT License | https://github.com/ArchiveBox/good-karma-kit
+
+# Initial Setup ##########################################################################
+#
+#    Install Docker & Docker-Comose on your system: https://docs.docker.com/get-docker/
+#
+#    Read through all the services below, and for each <container> e.g. archivewarrior:
+#
+#      1. tune the cpu, memory, storage limits, and example env config
+#      2. pull and start the container
+#         $ docker-compose pull archivewarrior
+#         $ docker-compose up archivewarrior
+#      3. log in to the web UIs or online accounts to finish configuring each project, e.g.
+#         $ open http://127.0.0.1:8001
+
+# Usage Examples #########################################################################
+#
+#    docker-compose help
+#    docker-compose pull                       # download the latest version of the images
+#    docker-compose down                       # stop all containers
+#    docker-compose up                         # start all the containers
+#    docker-compose ps                         # view container statuses, pids, ports, etc.
+#    docker-compose exec <container> /bin/sh   # run a shell command inside a container
+
 
 version: '2.4'
 # >= v3.9 also works
 
 services:
 
-  ### Autoupdater
+  ### Autoupdater (optional, uncomment to enable)
   
-  watchtower:
-    # (Optional)
-    # Automatically updates & restarts the containers when they have new versions available
-    # https://containrrr.dev/watchtower
-    # https://github.com/containrrr/watchtower
-    image: containrrr/watchtower
-    command: --scope goodkarmakit
-    volumes:
-      # Security warning: this needs docker.sock to update the other containers
-      - /var/run/docker.sock:/var/run/docker.sock
+  # watchtower:
+  #   # Automatically updates & restarts the containers when they have new versions available
+  #   # https://containrrr.dev/watchtower
+  #   # https://github.com/containrrr/watchtower
+  #   image: containrrr/watchtower
+  #   command: --scope goodkarmakit
+  #   volumes:
+  #     # Security warning: in order to apply updates, it needs admin access to administer *all* docker containers on the host system
+  #     - /var/run/docker.sock:/var/run/docker.sock
 
 
   ### Distributed networking projects
@@ -119,12 +133,12 @@ services:
     ports:
       - 127.0.0.1:8001:8001
     environment:
-      - DOWNLOADER=ANY_UNIQUE_WORKER_NICKNAME
-      - WORKER_ID=ANY_UNIQUE_WORKER_NICKNAME
+      - DOWNLOADER=ANY_UNIQUE_WORKER_NICKNAME     # e.g. DOWNLOADER=JaneDoe4242
+      - WORKER_ID=ANY_UNIQUE_WORKER_NICKNAME      #      WORKER_ID=JaneDoe4242
       - SELECTED_PROJECT=auto
       - CONCURRENT_ITEMS=3
     cpus: 3
-    mem_limit: 3072
+    mem_limit: 3072m
     restart: on-failure
     labels:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
@@ -139,7 +153,7 @@ services:
   #   volumes:
   #     - /var/run/docker.sock:/var/run/docker.sock
   #   cpus: 3
-  #   mem_limit: 3072
+  #   mem_limit: 3072m
   #   restart: on-failure
   #   labels:
   #     - "com.centurylinklabs.watchtower.scope=goodkarmakit"
@@ -264,7 +278,7 @@ services:
     restart: on-failure
     labels:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
-    
+
   transmission:
     image: linuxserver/transmission
     # Add files to seed via the Web UI:
@@ -272,9 +286,9 @@ services:
     # https://github.com/transmission/transmission
     # https://hub.docker.com/r/linuxserver/transmission/
     ports:
-        - 127.0.0.1:9091:9091
-        - 51413:51413
-        - 51413:51413/udp
+        - 127.0.0.1:9091:9091      # admin HTTP UI
+        - 51413:51413              # public BitTorrent TCP port
+        - 51413:51413/udp          # public BitTorrent UDP port
     # environment:
     #    - USER=squash
     #    - PASS=NfC6r47FA8J2K
