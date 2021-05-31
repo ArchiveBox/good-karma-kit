@@ -102,7 +102,7 @@ Notes: needs access `docker.sock` to work, but can be disabled if you regularly 
 
 `image: thetorproject/obfs4-bridge:latest`
 
-> Run a relay node for the Tor onion routing netowrk that helps people use the internet with as much privacy as possible. (501(c)(3) US nonprofit)
+> Run a relay node for the Tor onion routing network that helps people use the internet with as much privacy as possible. (501(c)(3) US nonprofit)
 
 [https://www.torproject.org/](https://www.torproject.org/)  
 [https://hub.docker.com/r/thetorproject/obfs4-bridge](https://hub.docker.com/r/thetorproject/obfs4-bridge)
