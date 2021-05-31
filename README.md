@@ -89,6 +89,8 @@ If there are too many containers for your liking, the top-3 high-impact and easy
 
 > Automatically update & restart docker containers when they have new versions available. (open source helper container)
 
+*(commented out by default, but highly recommended to enable it by uncommenting)*
+
 [https://containrrr.dev/watchtower/](https://containrrr.dev/watchtower/)  
 [https://github.com/containrrr/watchtower](https://github.com/containrrr/watchtower)
 
