@@ -81,7 +81,11 @@ If there are too many containers for your liking, the top-3 high-impact and easy
 
 ---
 
+<br/>
+
 ### Autoupdater
+
+<br/>
 
 #### watchtower
 
@@ -96,9 +100,15 @@ If there are too many containers for your liking, the top-3 high-impact and easy
 
 Notes: needs access `docker.sock` to work, but can be disabled if you regularly udpate the containers yourself by hand
 
+<br/>
+
 ---
 
+<br/>
+
 ### Distributed networking projects
+
+<br/>
 
 #### tor ⭐️
 
@@ -111,6 +121,8 @@ Notes: needs access `docker.sock` to work, but can be disabled if you regularly 
 
 Notes: Does not run a guard/exit node, only a [middle relay](https://community.torproject.org/relay/types-of-relays/) node
 
+<br/>
+
 #### i2p
 
 `image: divax/i2p:i2p-tor`
@@ -120,10 +132,15 @@ Notes: Does not run a guard/exit node, only a [middle relay](https://community.t
 [https://geti2p.net/en/](https://geti2p.net/en/)  
 [https://hub.docker.com/r/divax/i2p](https://hub.docker.com/r/divax/i2p)
 
+<br/>
 
 ---
 
+<br/>
+
 ### Distributed computing projects
+
+<br/>
 
 #### boinc ⭐️
 
@@ -136,6 +153,7 @@ Notes: Does not run a guard/exit node, only a [middle relay](https://community.t
     
 Notes: if you have a GPU, it will help computations greatly, please uncomment the /dev/dri line.
 
+<br/>
 
 #### foldingathome
 
@@ -146,10 +164,15 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
 [https://foldingathome.org/](https://foldingathome.org/)  
 [https://hub.docker.com/r/linuxserver/foldingathome](https://hub.docker.com/r/linuxserver/foldingathome)
 
+<br/>
 
 ---
 
+<br/>
+
 ### Internet Archiving projects
+
+<br/>
 
 #### archivewarrior ⭐️
 
@@ -159,6 +182,8 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
 
 [https://warrior.archiveteam.org/](https://warrior.archiveteam.org/)  
 [https://hub.docker.com/r/archiveteam/warrior-dockerfile/](https://hub.docker.com/r/archiveteam/warrior-dockerfile/)
+
+<br/>
 
 #### zimfarm
 
@@ -171,6 +196,8 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
     
 Notes: this one requires a static IP and >1TB of monthly network transfer available! You must [contact Kiwix to get your worker set up](https://github.com/openzim/zimfarm/blob/master/workers/README.md#zimfarm-workers), and get your static IP whitelisted.
 
+<br/>
+
 #### kiwix
 
 `image: kiwix/kiwix-serve:latest`
@@ -181,6 +208,8 @@ Notes: this one requires a static IP and >1TB of monthly network transfer availa
 [https://hub.docker.com/r/kiwix/kiwix-serve](https://hub.docker.com/r/kiwix/kiwix-serve)
 
 Notes: this one requires you download some ZIM archives to serve into `./data/kiwix`, get those from here: [https://wiki.kiwix.org/wiki/Content_in_all_languages](https://wiki.kiwix.org/wiki/Content_in_all_languages)
+
+<br/>
 
 #### archivebox
 
@@ -193,6 +222,8 @@ Notes: this one requires you download some ZIM archives to serve into `./data/ki
     
 Notes: this one is empty by default, add some sites to archive or crawl regulary using the web UI or CLI.
 
+<br/>
+
 #### pywb
 
 `image: webrecorder/pywb:latest`
@@ -204,11 +235,17 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
     
 Notes: this one is empty by default, add some sites to archive or crawl regulary using the web UI or CLI.
 
+<br/>
+
 ---
+
+<br/>
 
 ### Distribued storage projects
 
 (these serve assets to the public, 
+
+<br/>
 
 #### ipfs
 
@@ -219,6 +256,7 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 [https://ipfs.io](https://ipfs.io)  
 [https://hub.docker.com/r/ipfs/go-ipfs](https://hub.docker.com/r/ipfs/go-ipfs)
 
+<br/>
 
 #### storj
 
@@ -229,7 +267,9 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 [https://www.storj.io/](https://www.storj.io/)  
 [https://hub.docker.com/r/storjlabs/storagenode](https://hub.docker.com/r/storjlabs/storagenode)
 
-Notes: 💰 This one earns you money for your storage! Set up your `WALLET` address for payouts.
+Notes: 💰 This one (optionally) earns you money for your storage. Set the `WALLET` to your address if you want payouts.
+
+<br/>
 
 #### sia
 
@@ -241,6 +281,8 @@ Notes: 💰 This one earns you money for your storage! Set up your `WALLET` addr
 
 [https://sia.tech/](https://sia.tech/)  
 [https://hub.docker.com/r/nebulouslabs/sia](https://hub.docker.com/r/nebulouslabs/sia)
+
+<br/>
 
 #### Transmission
 
@@ -262,8 +304,15 @@ volumes:
     - ./data/transmission:/config
 ```
 
+<br/>
+
+Notes: some networks don't like BitTorrent traffic, make sure your provider allows it.
+
+<br/>
+
 ---
 
+<br/>
 
 ## Contribute
 
