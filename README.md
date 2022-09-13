@@ -317,3 +317,8 @@ Notes: some networks don't like BitTorrent traffic, make sure your provider allo
 ## Contribute
 
 Contributions, corrections, and documentation improvements are welcome! Please open an issue or PR to suggest a fix or a new container addition.
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
