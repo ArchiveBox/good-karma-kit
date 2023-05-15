@@ -50,7 +50,7 @@ services:
     # https://www.torproject.org/
     # https://community.torproject.org/relay/setup/bridge/docker/
     # https://hub.docker.com/r/thetorproject/obfs4-bridge
-    image: thetorproject/obfs4-bridge:latest
+    image: thetorproject/obfs4-bridge
     ports:
       - 9393:9393
       - 9292:9292
@@ -58,8 +58,8 @@ services:
       - OR_PORT=9393
       - PT_PORT=9292
       - EMAIL=youremail@example.com
-    volumes:
-      - ./data/tor:/var/lib/tor
+    # volumes:
+    #  - ./data/tor:/var/lib/tor   # optional to store temp config between restarts
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
     restart: on-failure
@@ -128,11 +128,12 @@ services:
     #   http://127.0.0.1:8001
     # http://warrior.archiveteam.org/
     # https://hub.docker.com/r/archiveteam/warrior-dockerfile/
-    image: archiveteam/warrior-dockerfile
-    # image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest   # backup mirror if ever issues with image on Docker hub
+    image: atdr.meo.ws/archiveteam/warrior-dockerfile
     ports:
       - 127.0.0.1:8001:8001
     environment:
+      # - HTTP_USERNAME=
+      # - HTTP_PASSWORD=
       - DOWNLOADER=ANY_UNIQUE_WORKER_NICKNAME     # e.g. DOWNLOADER=JaneDoe4242
       - WORKER_ID=ANY_UNIQUE_WORKER_NICKNAME      #      WORKER_ID=JaneDoe4242
       - SELECTED_PROJECT=auto
@@ -228,7 +229,8 @@ services:
     image: ipfs/go-ipfs:latest
     ports:
       - 8080:8080             # public gateway
-      - 4001:4001             # public swarm UDP
+      - 4001:4001
+      - 4001:4001/udp         # public swarm UDP
       - 127.0.0.1:5001:5001   # private API
     volumes:
       - ./data/ipfs:/data/ipfs
@@ -244,7 +246,7 @@ services:
     #    http://127.0.0.1:14002/
     # https://www.storj.io/
     # https://hub.docker.com/r/storjlabs/storagenode
-    image: storjlabs/storagenode:latest
+    image: storjlabs/storagenode
     ports:
       - 28967:28967
       - 127.0.0.1:14002:14002
