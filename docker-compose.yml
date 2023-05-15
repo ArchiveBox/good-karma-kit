@@ -69,7 +69,7 @@ services:
   i2p:
     # https://geti2p.net/en/
     # https://hub.docker.com/r/divax/i2p
-    image: divax/i2p:i2p-tor
+    image: divax/i2p:current
     ports:
       - 7070:7070
       - 4444:4444
@@ -290,8 +290,8 @@ services:
         - 51413:51413              # public BitTorrent TCP port
         - 51413:51413/udp          # public BitTorrent UDP port
     # environment:
-    #    - USER=squash
-    #    - PASS=NfC6r47FA8J2K
+    #   - USER=yourDesiredAdminUsernameHere
+    #   - PASS=CHANGETHISPASSWORD
     volumes:
         - ./data/transmission/files:/data
         - ./data/transmission:/config
