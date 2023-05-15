@@ -150,9 +150,13 @@ services:
   #   #    https://farm.openzim.org/
   #   # https://github.com/openzim/zimfarm
   #   # https://hub.docker.com/r/openzim/zimfarm-worker-manager
-  #   image: openzim/zimfarm-worker-manager
+  #   image: ghcr.io/openzim/zimfarm-worker-manager
+  #   environment:
+  #     - ZIMFARM_USERNAME=
+  #     - ZIMFARM_ROOT=/data/zimfarm
   #   volumes:
   #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - ./data/zimfarm:/data/zimfarm
   #   cpus: 3
   #   mem_limit: 3072m
   #   restart: on-failure
