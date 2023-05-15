@@ -225,12 +225,14 @@ services:
     # Make sure to pin some files you want to host for others using the web UI
     #   http://127.0.0.1:5001
     # https://ipfs.io
-    # https://hub.docker.com/r/ipfs/go-ipfs
-    image: ipfs/go-ipfs:latest
+    # https://docs.ipfs.tech/install/run-ipfs-inside-docker/
+    # https://hub.docker.com/r/ipfs/kubo/
+    image: ipfs/kubo
     ports:
-      - 8080:8080             # public gateway
+      
       - 4001:4001
       - 4001:4001/udp         # public swarm UDP
+      - 8080:8080             # public gateway
       - 127.0.0.1:5001:5001   # private API
     volumes:
       - ./data/ipfs:/data/ipfs
