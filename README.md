@@ -176,12 +176,12 @@ Notes: if you have a GPU, it will help computations greatly, please uncomment th
 
 #### archivewarrior ⭐️
 
-`image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest` or `archiveteam/warrior-dockerfile`
+`image: atdr.meo.ws/archiveteam/warrior-dockerfile:latest`
 
 > Help contribute CPU and bandwidth to archive parts of the internet automatically before they go down. Has helped save large swaths of the internet from going dark forever by adding them to Archive.org. (operated by an open-source collective, not-for-profit)
 
 [https://warrior.archiveteam.org/](https://warrior.archiveteam.org/)  
-[https://hub.docker.com/r/archiveteam/warrior-dockerfile/](https://hub.docker.com/r/archiveteam/warrior-dockerfile/)
+[https://github.com/ArchiveTeam/warrior-dockerfile](https://github.com/ArchiveTeam/warrior-dockerfile)
 
 <br/>
 
