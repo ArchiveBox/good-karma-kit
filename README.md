@@ -40,7 +40,7 @@ Or use the web dashboards / leaderboards for each service listed below.
 
 ## Overview
 
-Have some space computing power and want to donate it to a good cause? How about 10+ good causes all at once?
+Have some space computing power and want to donate it to a good cause? How about 10+ good causes at once?
 
 > ♻️   put an under-utilized system to good use  
 > 🚲  use as much or as little CPU/RAM/DISK as you want  
