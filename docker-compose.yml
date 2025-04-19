@@ -269,24 +269,6 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
-  sia:
-    # https://sia.tech/
-    # https://hub.docker.com/r/nebulouslabs/sia
-    image: nebulouslabs/sia
-    ports:
-      - 9981:9981
-      - 9982:9982
-      - 9983:9983
-      - 9984:9984
-      - 127.0.0.1:9980:9980
-    volumes:
-      - ./data/sia:/sia-data
-    cpus: 2
-    mem_limit: 2048m
-    restart: on-failure
-    labels:
-      - "com.centurylinklabs.watchtower.scope=goodkarmakit"
-
   transmission:
     image: linuxserver/transmission
     # Add files to seed via the Web UI:
