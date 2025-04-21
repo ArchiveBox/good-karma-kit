@@ -55,8 +55,8 @@ services:
       - OR_PORT=9393
       - PT_PORT=9292
       - EMAIL=youremail@example.com
-    # volumes:
-    #  - ./data/tor:/var/lib/tor   # optional to store temp config between restarts
+    volumes:
+     - tordata:/var/lib/tor   # optional to store temp config between restarts
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
     restart: on-failure
@@ -308,3 +308,7 @@ services:
     restart: on-failure
     labels:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
+volumes:
+  tordata:
+    name: tordata
