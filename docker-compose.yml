@@ -251,6 +251,7 @@ services:
     #    http://127.0.0.1:14002/
     # https://www.storj.io/
     # https://hub.docker.com/r/storjlabs/storagenode
+    # Also take note of the comment about the SETUP env variable
     image: storjlabs/storagenode
     ports:
       - 28967:28967/tcp
@@ -260,6 +261,7 @@ services:
       - WALLET=YOUR_STORJ_PAYOUT_ADDRESS_HERE
       - EMAIL=YOUR_EMAIL_HERE@example.com
       - STORAGE=100GB
+      - SETUP=true  # this needs to be set on the first run of that container, then must be removed
     volumes:
       - ./data/storj/config:/app/config
       - ./data/storj/identity/storagenode:/app/identity
