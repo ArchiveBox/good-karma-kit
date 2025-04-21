@@ -24,9 +24,6 @@
 #    docker-compose exec <container> /bin/sh   # run a shell command inside a container
 
 
-version: '2.4'
-# >= v3.9 also works
-
 services:
 
   ### Autoupdater (optional, uncomment to enable)
@@ -58,8 +55,8 @@ services:
       - OR_PORT=9393
       - PT_PORT=9292
       - EMAIL=youremail@example.com
-    # volumes:
-    #  - ./data/tor:/var/lib/tor   # optional to store temp config between restarts
+    volumes:
+     - ./data/tor:/var/lib/tor   # optional to store temp config between restarts
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
     restart: on-failure
@@ -71,10 +68,11 @@ services:
     # https://hub.docker.com/r/divax/i2p
     image: divax/i2p:current
     ports:
-      - 7070:7070
-      - 4444:4444
-      - 4445:4445
-      - 9050:9050
+      # Details of each port can be found at https://geti2p.net/en/docs/ports
+      - 127.0.0.1:7070:7070  # i2pd console
+      - 4444:4444  # HTTP proxy
+      - 4445:4445  # HTTPS proxy
+      - 9050:9050  # Tor SOCKS Proxy (reserve)
       # - 127.0.0.1:8080:8080      # optional: proxy port for accessing i2p
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
@@ -226,8 +224,7 @@ services:
 ### Distribued storage projects
   
   ipfs:
-    # Make sure to pin some files you want to host for others using the web UI
-    #   http://127.0.0.1:5001
+    # Make sure to pin some files you want to host for others using the web UI at http://127.0.0.1:5001/webui
     # https://ipfs.io
     # https://docs.ipfs.tech/install/run-ipfs-inside-docker/
     # https://hub.docker.com/r/ipfs/kubo/
@@ -252,14 +249,17 @@ services:
     #    http://127.0.0.1:14002/
     # https://www.storj.io/
     # https://hub.docker.com/r/storjlabs/storagenode
+    # Also take note of the comment about the SETUP env variable
     image: storjlabs/storagenode
     ports:
-      - 28967:28967
+      - 28967:28967/tcp
+      - 28967:28967/udp
       - 127.0.0.1:14002:14002
     environment:
       - WALLET=YOUR_STORJ_PAYOUT_ADDRESS_HERE
       - EMAIL=YOUR_EMAIL_HERE@example.com
       - STORAGE=100GB
+      - SETUP=true  # this needs to be set on the first run of that container, then must be removed
     volumes:
       - ./data/storj/config:/app/config
       - ./data/storj/identity/storagenode:/app/identity
@@ -308,3 +308,4 @@ services:
     restart: on-failure
     labels:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
+
