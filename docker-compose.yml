@@ -72,7 +72,7 @@ services:
     image: divax/i2p:current
     ports:
       # Details of each port can be found at https://geti2p.net/en/docs/ports
-      - 7070:7070
+      - 127.0.0.1:7070:7070
       - 4444:4444
       - 4445:4445
       - 9050:9050
