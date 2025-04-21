@@ -226,8 +226,7 @@ services:
 ### Distribued storage projects
   
   ipfs:
-    # Make sure to pin some files you want to host for others using the web UI
-    #   http://127.0.0.1:5001
+    # Make sure to pin some files you want to host for others using the web UI at http://127.0.0.1:5001/webui
     # https://ipfs.io
     # https://docs.ipfs.tech/install/run-ipfs-inside-docker/
     # https://hub.docker.com/r/ipfs/kubo/
