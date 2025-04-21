@@ -72,10 +72,10 @@ services:
     image: divax/i2p:current
     ports:
       # Details of each port can be found at https://geti2p.net/en/docs/ports
-      - 127.0.0.1:7070:7070
-      - 4444:4444
-      - 4445:4445
-      - 9050:9050
+      - 127.0.0.1:7070:7070  # i2pd console
+      - 4444:4444  # HTTP proxy
+      - 4445:4445  # HTTPS proxy
+      - 9050:9050  # Tor SOCKS Proxy (reserve)
       # - 127.0.0.1:8080:8080      # optional: proxy port for accessing i2p
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
