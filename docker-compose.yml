@@ -24,9 +24,6 @@
 #    docker-compose exec <container> /bin/sh   # run a shell command inside a container
 
 
-version: '2.4'
-# >= v3.9 also works
-
 services:
 
   ### Autoupdater (optional, uncomment to enable)
