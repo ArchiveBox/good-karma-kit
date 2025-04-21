@@ -52,7 +52,7 @@ This is a collection of containers that all contribute to public-good projects:
 - networks: Tor, i2p
 - computing: boinc, foldingathome
 - archiving: archivewarrior, zimfarm, kiwix, archivebox, pywb
-- storage: ipfs, storj, sia, transmission
+- storage: ipfs, storj, transmission
 
 This v1 list was started by the [ArchiveBox](https://archivebox.io) project, but it's open to contributions.
 
@@ -268,19 +268,6 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 [https://hub.docker.com/r/storjlabs/storagenode](https://hub.docker.com/r/storjlabs/storagenode)
 
 Notes: 💰 This one (optionally) earns you money for your storage. Set the `WALLET` to your address if you want payouts.
-
-<br/>
-
-#### sia
-
-(OPTIONAL, commented out by default)
-
-`image: nebulouslabs/sia`
-
-> Run a storage node (free/not-for-profit) on the Sia distributed storage network. (technically operated by Sia Foundation, a 501(c)(3) US nonprofit, but helps serve Skynet, their for-profit 💰 entity)
-
-[https://sia.tech/](https://sia.tech/)  
-[https://hub.docker.com/r/nebulouslabs/sia](https://hub.docker.com/r/nebulouslabs/sia)
 
 <br/>
 
