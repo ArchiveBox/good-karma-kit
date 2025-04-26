@@ -223,6 +223,40 @@ services:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
 
+  mwmbl-crawler:
+    # Help crawl for mwmbl.org, the open source, non profit web search engine
+    # More info: https://book.mwmbl.org/
+    # Crawler source: https://github.com/mwmbl/crawler-script
+    environment:
+      - THREADS=1
+    restart: always
+    build:
+      context: .
+      dockerfile_inline: |
+          FROM alpine:latest AS repo
+          RUN apk add --no-cache git
+          WORKDIR /app
+          RUN git clone https://github.com/mwmbl/crawler-script.git .
+
+          FROM python:3.9-slim-bullseye
+          COPY --from=repo /app/entrypoint.sh /
+          RUN chmod +x /entrypoint.sh
+          RUN mkdir -p /srv/mwmbl/crawler-script
+          RUN useradd mwmbl -r -d /srv/mwmbl && \
+              chown mwmbl:mwmbl -R /srv/mwmbl
+          USER mwmbl
+          WORKDIR /srv/mwmbl/crawler-script
+          COPY --from=repo /app/justext /srv/mwmbl/crawler-script/justext
+          COPY --from=repo /app/LICENSE /app/README.md /app/pyproject.toml /app/poetry.lock /app/main.py /srv/mwmbl/crawler-script/
+          RUN python -m venv venv && \
+              . venv/bin/activate && \
+              pip install . && \
+              pip cache purge
+          ENTRYPOINT ["/entrypoint.sh"]
+
+
+
+
 ### Distribued storage projects
   
   ipfs:

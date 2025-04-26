@@ -237,6 +237,16 @@ Notes: this one is empty by default, add some sites to archive or crawl regulary
 
 <br/>
 
+#### mwmbl
+
+Docker image is built from the official [git repository](https://github.com/mwmbl/crawler-script/)
+
+> [Mwmbl](https://github.com/mwmbl/mwmbl) is a non-profit, open source search engine where the community determines the rankings. We aim to be a replacement for commercial search engines such as Google and Bing.
+
+[https://github.com/mwmbl/mwmbl](https://github.com/mwmbl/mwmbl)
+
+<br/>
+
 ---
 
 <br/>
