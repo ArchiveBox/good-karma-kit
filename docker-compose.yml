@@ -64,16 +64,25 @@ services:
       - "com.centurylinklabs.watchtower.scope=goodkarmakit"
 
   i2p:
-    # https://geti2p.net/en/
-    # https://hub.docker.com/r/divax/i2p
-    image: divax/i2p:current
+    # source: https://geti2p.net/en/download/docker
+    # 1. The only port you have to expose is the one leading to
+    # 12345. To do so, replace the three CHANGEME below
+    # by a random port 1024 and 65535 and make sure it
+    # supports both UDP and TCP. Dont forget to uncomment those llines
+    # 2. Browser to 127.0.0.1:7657 to configure your i2p setup.
+    # Note: i2p is not fast to get peers so wait up to 30 minutes
+    # before investigating potential issues.
+    image: geti2p/i2p
+    volumes:
+        - ./data/i2p:/i2p/.i2p
     ports:
-      # Details of each port can be found at https://geti2p.net/en/docs/ports
-      - 127.0.0.1:7070:7070  # i2pd console
-      - 4444:4444  # HTTP proxy
-      - 4445:4445  # HTTPS proxy
-      - 9050:9050  # Tor SOCKS Proxy (reserve)
-      # - 127.0.0.1:8080:8080      # optional: proxy port for accessing i2p
+      # - 127.0.0.1:4444:4444/tcp  # HTTP proxy if you want to browser
+      # - 127.0.0.1:4445:4445/tcp  # Same but HTTPS
+      - 127.0.0.1:7657:7657  # router console
+      # - CHANGEME:12345/tcp  # I2NP protocol
+      # - CHANGEME:12345/udp  # I2NP protocol
+    environment:
+      - EXT_PORT=CHANGEME
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
     restart: on-failure
