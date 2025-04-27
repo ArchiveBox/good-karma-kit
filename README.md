@@ -125,12 +125,12 @@ Notes: Does not run a guard/exit node, only a [middle relay](https://community.t
 
 #### i2p
 
-`image: divax/i2p:i2p-tor`
+`image: geti2p/i2p`
 
 > Run a relay node for the i2p routing network (similar to Tor). (501(c)(3) US nonprofit)
 
-[https://geti2p.net/en/](https://geti2p.net/en/)  
-[https://hub.docker.com/r/divax/i2p](https://hub.docker.com/r/divax/i2p)
+[https://geti2p.net/en/](https://geti2p.net/en/
+[https://geti2p.net/en/download/docker](https://geti2p.net/en/download/docker)
 
 <br/>
 
