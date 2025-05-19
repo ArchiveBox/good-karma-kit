@@ -69,21 +69,34 @@ services:
     # 1. The only port you have to expose is the one leading to
     # 12345. To do so, replace the three CHANGEME below
     # by a random port 1024 and 65535 and make sure it
-    # supports both UDP and TCP. Dont forget to uncomment those llines
+    # supports both UDP and TCP. Dont forget to uncomment those lines
+    # You might need to open the UPnP ports depending on your network configuration.
     # 2. Browser to 127.0.0.1:7657 to configure your i2p setup.
     # Note: i2p is not fast to get peers so wait up to 30 minutes
     # before investigating potential issues.
     image: geti2p/i2p
     volumes:
         - ./data/i2p:/i2p/.i2p
-    ports:
-      # - 127.0.0.1:4444:4444/tcp  # HTTP proxy if you want to browser
-      # - 127.0.0.1:4445:4445/tcp  # Same but HTTPS
-      - 127.0.0.1:7657:7657  # router console
-      # - CHANGEME:12345/tcp  # I2NP protocol
-      # - CHANGEME:12345/udp  # I2NP protocol
     environment:
       - EXT_PORT=CHANGEME
+    ports:
+      # For management:
+      - 127.0.0.1:7657:7657  # router console
+      # Needed to receive from the internet:
+      # - CHANGEME:12345/tcp  # I2NP protocol
+      # - CHANGEME:12345/udp  # I2NP protocol
+      # Related to UPnP, might be needed depending on your network configuration:
+      # - YOURLANINTERFACE:7652:7652/tcp  # UPnP
+      # - YOURLANINTERFACE:7653:7653/udp  # UPnP
+      # If you want to use I2P yourself:
+      # - 127.0.0.1:4444:4444/tcp  # HTTP proxy
+      # - 127.0.0.1:4445:4445/tcp  # HTTPS proxy
+      # - 127.0.0.1:6668:6668/tcp  # IRC Proxy
+      # - 127.0.0.1:7654:7654/tcp  # I2CP protocol
+      # - 127.0.0.1:7656:7656/tcp  # SAM Bridge TCP
+      # - 127.0.0.1:7658:7658/tcp  # I2P Site
+      # - 127.0.0.1:7659:7659/tcp  # SMTP Proxy
+      # - 127.0.0.1:7660:7660/tcp  # POP3 Proxy
     cpus: 2                        # tune according to your system & preferences
     mem_limit: 2048m               # tune according to your system & preferences
     restart: always
