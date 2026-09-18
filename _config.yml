@@ -1,1 +1,10 @@
-theme: jekyll-theme-merlot
+
+title: Good Karma Kit
+description: Put spare computing resources to work with open-source projects that help preserve and improve the web.
+url: https://archivebox.github.io
+baseurl: /good-karma-kit
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
