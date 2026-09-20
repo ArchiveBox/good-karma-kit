@@ -1,0 +1,16 @@
+_layouts/default.html
+  h_923c208e183a7b 3,5-12
+assets/site-chrome.css
+  h_923c208e183a7b 8,21-54,88,96,103,106-107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ce65d4d80b7b8926958c1b53386296d548199193",
+  "prompts": {},
+  "humans": {
+    "h_923c208e183a7b": {
+      "author": "Nick Sweeting <git@sweeting.me>"
+    }
+  }
+}
